@@ -358,6 +358,7 @@ h6 {
   height: 0;
   visibility: hidden;
   overflow: hidden;
+  z-index: -1000;
 }
 
 .scrolled .header .branding {
@@ -483,36 +484,38 @@ h6 {
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
-    font-size: 28px;
+    font-size: 35px;
     line-height: 0;
     margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
+    position: fixed;
+    top: 35px;
+    right: 25px;
+    z-index: 10000; /* Ensure the toggle is above other elements */
   }
 
   .navmenu {
     padding: 0;
     z-index: 9997;
-   
-  
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 250px;
+    background-color: rgb(13, 93, 99);
+    transition: right 0.7s;
   }
 
   .navmenu ul {
-    display: none;
     list-style: none;
-    position: absolute;
-    inset: 0px 0px 0px 170px;
     padding: 10px 0;
     margin: 0;
-    background-color:   rgb(13, 93, 99);
+    background-color: rgb(13, 93, 99);
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     overflow-y: auto;
-    width: auto; 
-    transition: 0.7s;
-    z-index: 9998;
+    width: auto;
     padding-top: 50px;
-    
-
   }
 
   .navmenu a,
@@ -573,7 +576,6 @@ h6 {
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     box-shadow: none;
     transition: all 0.5s ease-in-out;
-    
   }
 
   .navmenu .dropdown ul ul {
@@ -591,30 +593,12 @@ h6 {
 
   .mobile-nav-active .mobile-nav-toggle {
     color: #fff;
-    position: absolute;
     font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
-    z-index: 9999;
   }
 
   /* Animación activa */
-.mobile-nav-active .navmenu {
-  transform: translateX(0); /* Muestra el menú */
-}
-
   .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navmenu>ul {
-    display: block;
-    
+    right: 0;
   }
 }
 

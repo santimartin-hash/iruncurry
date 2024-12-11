@@ -54,7 +54,7 @@
       e.preventDefault();
       this.parentNode.classList.toggle('active');
       this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
+      eImmediatePropagation();
     });
   });
 
